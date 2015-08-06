@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Rpi-wd-packet-interface : A digital mode soundcard interface for the Raspberry Pi">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Rpi-wd-packet-interface</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/jaymzx/RPi-WD-Packet-Interface">View on GitHub</a>
+
+          <h1 id="project_title">Rpi-wd-packet-interface</h1>
+          <h2 id="project_tagline">A digital mode soundcard interface for the Raspberry Pi</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/jaymzx/RPi-WD-Packet-Interface/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/jaymzx/RPi-WD-Packet-Interface/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="rpi-wd-packet-interface---a-digital-mode-soundcard-interface-for-the-raspberry-pi" class="anchor" href="#rpi-wd-packet-interface---a-digital-mode-soundcard-interface-for-the-raspberry-pi" aria-hidden="true"><span class="octicon octicon-link"></span></a>RPi-WD-Packet-Interface - A digital mode soundcard interface for the Raspberry Pi!</h1>
+
+<p>I set up an APRS igate using a Raspberry Pi device and a TNC-Pi 'hat'. While troubleshooting some other issues, I inadvertantly damaged the TNC-Pi, so I decided to go with a software TNC application. In this case, I chose <a href="https://home.comcast.net/%7Ewb2osz/site/">Dire Wolf</a> by WB2OSZ. In his documentation, he specified a simple radio PTT interface that included a 'watchdog timer' to prevent a software issue from locking the radio into transmit. Working with WB2OSZ, I expanded the circuit and created a board with the following features:</p>
+
+<h3>
+<a id="selectable-transmit-and-receive-channels" class="anchor" href="#selectable-transmit-and-receive-channels" aria-hidden="true"><span class="octicon octicon-link"></span></a>Selectable transmit and receive channels</h3>
+
+<ul>
+<li>I noticed between sound card dongles, the mic input could be on the left or the right channel, depending on how much care the manufacturer put into it. A jumper lets you pick the channel that works with your card. I added a transmit channel selector for the same reason, but also so you can use a 'Y' cable with your stereo sound card and use two interfaces to work with two radios without any cable hacking.</li>
+</ul>
+
+<h3>
+<a id="transmit-audio-level-pot" class="anchor" href="#transmit-audio-level-pot" aria-hidden="true"><span class="octicon octicon-link"></span></a>Transmit audio level pot</h3>
+
+<ul>
+<li>The radio is expecting millivolts of input into its MIC input. Modern sound cards can put out more than 2V peak to peak. This is really bad for distortion and over-deviation. Right now, I use about 40% volume on the sound card, and 20% volume on the pot. The audio is DC isolated with a capacitor to prevent phantom voltage (for electret microphones) from either the sound card or the radio from damaging anything.</li>
+</ul>
+
+<h3>
+<a id="adjustable-watchdog-delay" class="anchor" href="#adjustable-watchdog-delay" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adjustable watchdog delay</h3>
+
+<ul>
+<li>Most people will use this for packet, but some others may use it for things like RTTY, JT-65, QRSS or any other digital mode that has a long duty cycle. I added a big cap and 25-turn trimmer for a delay adjustable between 0 and 110 seconds with the parts specified. One can solder in a fixed resistor or change values for something that doesn't need to be adjusted. <a href="http://www.ohmslawcalculator.com/555-monostable-calculator">Calculators</a> are out there.</li>
+</ul>
+
+<h3>
+<a id="dcd-received-packet-led" class="anchor" href="#dcd-received-packet-led" aria-hidden="true"><span class="octicon octicon-link"></span></a>DCD (received packet) LED</h3>
+
+<ul>
+<li>The newest version of Dire Wolf can trigger a GPIO pin to signal a successfully decoded packet. Just bring this pin 'high' and the yellow DCD LED will light up. Yay. Good for watching activity at-a-glance from across the shack.</li>
+</ul>
+
+<h3>
+<a id="selectable-single-wire-handheld-ptt-or-kenwood-dedicated-ptt-wire-method" class="anchor" href="#selectable-single-wire-handheld-ptt-or-kenwood-dedicated-ptt-wire-method" aria-hidden="true"><span class="octicon octicon-link"></span></a>Selectable single-wire handheld PTT or 'Kenwood' dedicated PTT wire method</h3>
+
+<ul>
+<li>Most HTs use a resistor to ground on the microphone input to trigger PTT. Kenwood/Baofeng and some others have to be different and ground the mic shield to trigger. You can set a jumper to select whatever method you need.</li>
+</ul>
+
+<h3>
+<a id="standard-kantronics-db-9-radio-interface" class="anchor" href="#standard-kantronics-db-9-radio-interface" aria-hidden="true"><span class="octicon octicon-link"></span></a>Standard Kantronics DB-9 radio interface</h3>
+
+<ul>
+<li>I already had some cables I made and bought for radios when using my KPC3. The TNC-Pi and (I believe) the TinyTrak and OpenTracker devices use the same standard. This makes it easy to buy cables if you don't want to make them, or re-use ones you already have kicking around. FWIW, I hate DB9 connectors and prefer RJ-45 for these purposes, but I wanted to make it 'standard'. Signalink and RigBlaster use a similar (although RB is reversed) RJ-45 standard, but it's not as prolific. In case someone hates DB-9 as much as I do, I called out the signals on the pads to which they can be directly soldered for a cable, header pins, etc.</li>
+</ul>
+
+<h3>
+<a id="native-33v-rpi-logic-levels" class="anchor" href="#native-33v-rpi-logic-levels" aria-hidden="true"><span class="octicon octicon-link"></span></a>Native 3.3v Rpi logic levels</h3>
+
+<ul>
+<li>Using this board as configured works with the 3.3v logic the RPi uses. If you use another controller (like an Arduino) you <em>can</em> use 5V logic as the LMC555 CMOS can handle it without a sweat, but you will need to change the resistor values for the LEDs and transistor bias. You can also skip 3.3v altogether if you want to use it with a 5V microcontroller and use a cheap and widely-available LM555N (and the appropriate resistor changes).</li>
+</ul>
+
+<h3>
+<a id="uses-standard-60mm-x-60mm-sick-of-beige-pcb-size" class="anchor" href="#uses-standard-60mm-x-60mm-sick-of-beige-pcb-size" aria-hidden="true"><span class="octicon octicon-link"></span></a>Uses standard 60mm x 60mm 'Sick of Beige' PCB size</h3>
+
+<ul>
+<li>Just like the <a href="https://xkcd.com/927/">xkcd</a> comic about standards, there is a new PCB size standard for the Maker crowd called <a href="http://dangerousprototypes.com/docs/Sick_of_Beige">Sick of Beige</a>. They have some cool acrylic cases at <a href="http://www.seeedstudio.com/depot/Sick-Of-Beige-Basic-Case-v1-60mm-Square-DP6060-p-1329.html">Seeed Studios</a>, but you can probably find others or fab up your own. The original board was smaller, but in order to fit into the SoB standard size, the minimum size that would fit the DB-9 connector is 60mm. Please note this is <em>not</em> a 'hat' for the RPi. It's a separate board. </li>
+</ul>
+
+<h3>
+<a id="open-hardware" class="anchor" href="#open-hardware" aria-hidden="true"><span class="octicon octicon-link"></span></a>Open Hardware</h3>
+
+<ul>
+<li>I put the time into it, but like most of my projects, once it's done, it's done. I figure others can benefit from my work, so I may as well pass it on. This project is licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike</a>, so you can edit it, improve it, remix it into another project, make and sell PCBs or kits, etc. You just need to specify a link back to the original source (here) to comply. It's no big deal.</li>
+</ul>
+
+<h3>
+<a id="readily-available-parts" class="anchor" href="#readily-available-parts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Readily-available parts</h3>
+
+<ul>
+<li>You probably have most of these parts in your bin, but things like the 3.5mm and DB-9 connectors are available at <a href="https://www.sparkfun.com/">SparkFun</a>. I specified genuine Borne trimpots in the PCB footprints but they are commonly used by others. You can find them at <a href="http://www.mouser.com/">Mouser</a> or many other places.</li>
+</ul>
+
+<p>You can order a <a href="https://oshpark.com/shared_projects/rPyD67jj">pre-made PCB from OSH Park</a> (with the beautiful purple solder mask as shown). They come in multiples of three, so order some for your friends or make a couple for a multi-rig interface. You can also take the Eagle files and have them made elsewhere, or make your own using a toner transfer or photo etch PCB process. Go nuts.</p>
+
+<h1>
+<a id="known-issues" class="anchor" href="#known-issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Known issues</h1>
+
+<p>None at this time. </p>
+
+<h2>
+<a id="enjoy-the-interface-and-see-you-on-the-air" class="anchor" href="#enjoy-the-interface-and-see-you-on-the-air" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enjoy the interface, and see you on the air.</h2>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Rpi-wd-packet-interface maintained by <a href="https://github.com/jaymzx">jaymzx</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>

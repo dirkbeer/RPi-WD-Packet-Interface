@@ -1,5 +1,7 @@
 # RPi-WD-Packet-Interface - A digital mode soundcard interface for the Raspberry Pi!
 
+Modified to use RJ-45 instead of DB-9 connector by dirkbeer.
+
 I set up an APRS igate using a Raspberry Pi device and a TNC-Pi 'hat'. While troubleshooting some other issues, I inadvertantly damaged the TNC-Pi, so I decided to go with a software TNC application. In this case, I chose [Dire Wolf](https://github.com/wb2osz/direwolf) by WB2OSZ. In his documentation, he specified a simple radio PTT interface that included a 'watchdog timer' to prevent a software issue from locking the radio into transmit. Working with WB2OSZ, I expanded the circuit and created a board with the following features:
 
 ### Selectable transmit and receive channels

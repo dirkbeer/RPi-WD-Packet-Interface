@@ -1,0 +1,32 @@
+Partlist exported from /home/familybeer/RPi-WD-Packet-Interface/EAGLE/RPi-WD-Packet-Interface - RJ45.sch at 8/26/18 9:48 PM
+
+Part  Value               Device                   Package      Description                                                     MF    MPN        OC_FARNELL PCB_SIZE 
+C1    0.1                 C-US025-025X050          C025-025X050 CAPACITOR, American symbol                                                                           
+C2    0.1                 C-US025-025X050          C025-025X050 CAPACITOR, American symbol                                                                           
+C3    100                 CPOL-USE2-5              E2-5         POLARIZED CAPACITOR, American symbol                                                                 
+C4    0.1                 C-US025-025X050          C025-025X050 CAPACITOR, American symbol                                                                           
+IC1   TLC555              LM555N                   DIL08        TIMER                                                                                                
+JP1   rx ch select        M03PTH                   1X03         Header 3                                                                                             
+JP2   RPi                 M04PTH                   1X04         Header 4                                                                                             
+JP3   TX Audio            AUDIO-JACKPTH            AUDIO-JACK   3.5mm Audio Jack                                                                                     
+JP4   RX Audio            AUDIO-JACKPTH            AUDIO-JACK   3.5mm Audio Jack                                                                                     
+JP5   tx ch select        M03PTH                   1X03         Header 3                                                                                             
+JP6   PTT Resistor Enable M02PTH                   1X02         Standard 2-pin 0.1" header. Use with                                                                 
+JP7   Radio               0446200002               0446200002   RJ-45 INVERTED MODULAR JACK ASSEMBLY WITH RJ-11 KEEPOUT FEATURE MOLEX 0446200002 9251910             
+LED1  PTT                 LED5MM                   LED5MM       LED                                                                                                  
+LED2  DCD                 LED5MM                   LED5MM       LED                                                                                                  
+LOGO1 OSHW-LOGOM          OSHW-LOGOM               OSHW-LOGO-M  Open Source Hardware Logo                                                                            
+PCB1  PCB_DP_SQUARE-6X6   PCB_DP_SQUARE-6X6        DP6060_V1    Dangerous Prototypes Standard Square PCB sizes                                              DP6060_V1
+Q1    PTT                 TRANSISTOR_NPNTO-92-AMMO TO-92-AMMO   Generic NPN BJT                                                                                      
+Q2    PTT-LED             TRANSISTOR_NPNTO-92-AMMO TO-92-AMMO   Generic NPN BJT                                                                                      
+Q3    DCD-LED             TRANSISTOR_NPNTO-92-AMMO TO-92-AMMO   Generic NPN BJT                                                                                      
+R1    10K                 R-US_0207/7              0207/7       RESISTOR, American symbol                                                                            
+R2    100K                R-US_0207/7              0207/7       RESISTOR, American symbol                                                                            
+R3    3K                  R-US_0207/7              0207/7       RESISTOR, American symbol                                                                            
+R4    1M                  R-TRIMM3296W             RTRIM3296W   Trimm resistor                                                                                       
+R5    3K                  R-US_0207/7              0207/7       RESISTOR, American symbol                                                                            
+R6    100                 R-US_0207/7              0207/7       RESISTOR, American symbol                                                                            
+R7    100                 R-US_0207/7              0207/7       RESISTOR, American symbol                                                                            
+R8    3K                  R-US_0207/7              0207/7       RESISTOR, American symbol                                                                            
+R9    10K                 RTRIM-3362P              RTRIM3362P   BOURNS 3362 - 1/4" Square Trimpot® Trimming Potentiometer                                            
+R10   2.2K                R-US_0207/7              0207/7       RESISTOR, American symbol                                                                            

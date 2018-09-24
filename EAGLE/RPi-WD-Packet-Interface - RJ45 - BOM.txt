@@ -5,7 +5,7 @@ C1    0.1                 C-US025-025X050          C025-025X050 CAPACITOR, Ameri
 C2    0.1                 C-US025-025X050          C025-025X050 CAPACITOR, American symbol                                                                           
 C3    100                 CPOL-USE2-5              E2-5         POLARIZED CAPACITOR, American symbol                                                                 
 C4    0.1                 C-US025-025X050          C025-025X050 CAPACITOR, American symbol                                                                           
-IC1   TLC555              LM555N                   DIL08        TIMER                                                                                                
+IC1   TLC555              TLC555                   DIL08        TIMER                                                                                                
 JP1   rx ch select        M03PTH                   1X03         Header 3                                                                                             
 JP2   RPi                 M04PTH                   1X04         Header 4                                                                                             
 JP3   TX Audio            AUDIO-JACKPTH            AUDIO-JACK   3.5mm Audio Jack                                                                                     
